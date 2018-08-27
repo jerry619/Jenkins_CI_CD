@@ -1,0 +1,45 @@
+def build_status (state) {
+    gitLabConnection('Jenkins')
+    updateGitlabCommitStatus(name: 'build', state: "${state}")
+}
+def buid_pass_git () {
+    script{
+        if (currentBuild.currentResult == "ABORTED") {
+            build_status ('canceled')
+        } else if ( currentBuild.currentResult == "FAILURE"){
+            build_status ('failed')
+        } else {
+            build_status ('success')
+        }
+    }
+}
+
+pipeline {
+        agent any
+        options {
+                buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        }
+        environment {
+            namespace = 'test-namespace'
+        }
+        tools {
+                maven 'Local_Maven_3.5.4'
+                jdk 'Local_jdk_1.8.0'
+        }
+        stages {
+                stage('Junit test') {
+                        steps { 
+                                deleteDir()
+                                build_status ('running')
+                                sh 'mvn clean test'
+                        }
+                        
+                }
+        }
+        post {
+            always {
+                buid_pass_git ()
+                junit 'target/surefire-reports/**/*.xml'     
+            }       
+        }
+}

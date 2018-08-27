@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bootDemo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.dto</a> &gt; <span class="el_source">UserDto.java</span></div><h1>UserDto.java</h1><pre class="source lang-java linenums">package com.example.demo.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by ashish on 13/5/17.
+ */
+public class UserDto {
+    Integer userId;
+    String userName;
+<span class="nc" id="L12">    List&lt;SkillDto&gt; skillDtos= new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L14">    public UserDto(Integer userId, String userName, List&lt;SkillDto&gt; skillDtos) {</span>
+<span class="nc" id="L15">        this.userId = userId;</span>
+<span class="nc" id="L16">        this.userName = userName;</span>
+<span class="nc" id="L17">        this.skillDtos = skillDtos;</span>
+<span class="nc" id="L18">    }</span>
+
+<span class="nc" id="L20">    public UserDto() {</span>
+<span class="nc" id="L21">    }</span>
+
+    public Integer getUserId() {
+<span class="nc" id="L24">        return userId;</span>
+    }
+
+    public void setUserId(Integer userId) {
+<span class="nc" id="L28">        this.userId = userId;</span>
+<span class="nc" id="L29">    }</span>
+
+    public String getUserName() {
+<span class="nc" id="L32">        return userName;</span>
+    }
+
+    public void setUserName(String userName) {
+<span class="nc" id="L36">        this.userName = userName;</span>
+<span class="nc" id="L37">    }</span>
+
+    public List&lt;SkillDto&gt; getSkillDtos() {
+<span class="nc" id="L40">        return skillDtos;</span>
+    }
+
+    public void setSkillDtos(List&lt;SkillDto&gt; skillDtos) {
+<span class="nc" id="L44">        this.skillDtos = skillDtos;</span>
+<span class="nc" id="L45">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
